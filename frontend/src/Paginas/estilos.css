@@ -1,0 +1,22 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background: #a9ff68;
+}
+.card{
+    display: flex;
+  width: 100%;
+}
+main{
+    max-width: 800px;
+    width: 90%;
+    margin: auto;
+    padding: 40px;
+}
+.FormLabel{
+    border-style: dashed;
+    border-radius: 10px;
+
+}
