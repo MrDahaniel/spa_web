@@ -15,17 +15,17 @@ class Usuario extends React.Component {
             <div class="pt-5">
                 <div class="container">
                     <div class="row">
-                        <div class="col-5 pe-2">
+                        <div class="col-6 pe-2">
                             <div class="container bg-info rounded">
                                 <div class="row text-center py-3">
                                     <h2>Información de Usuario</h2>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-5 ps-2">
+                        <div class="col-6 ps-2">
                             <div class="container bg-info rounded">
                                 <div class="row text-center py-3">
-                                    <h2>Información de Usuario</h2>
+                                    <h2>Reservas activas</h2>
                                 </div>
                             </div>
                         </div>

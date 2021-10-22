@@ -2,7 +2,7 @@ import React from 'react';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import Navbar from './Navegacion/Navbar'
 import Inicio from './Paginas/Inicio'
-import Sesion from './Paginas/Registro'
+import Sesion from './Paginas/Sesion'
 import Reservas from './Paginas/Reservas'
 import Galeria from './Paginas/Galeria'
 import Footer from './Navegacion/Footer'

@@ -1,14 +1,48 @@
 import React from 'react'
 import Container from '@mui/material/Container'
+import axios from 'axios'
 
 class Sesion extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            username: "",
+            password: ""
+        }
+
+        this.handleUsernameChange = this.handleUsernameChange.bind(this);
+        this.handlePassChange = this.handlePassChange.bind(this);
+
+        this.handleSubmit = this.handleSubmit.bind(this);
+
+        axios.defaults.xsrfCookieName = 'csrftoken';
+        axios.defaults.xsrfHeaderName = 'X-CSRFToken';
+    }
+
+    handleUsernameChange(event) { this.setState({ username: event.target.value }); }
+    handlePassChange(event) { this.setState({ password: event.target.value }); }
+
+    handleSubmit = () => {
+        if (
+            this.state.username === '' || this.state.email === '' ||
+            this.state.password === '' || this.state.phone === '' ||
+            this.state.birthday === ''
+        ) {
+            return;
+        }
+
+
+        axios.post("/api/auth/create", this.state)
+            .then((response) => response.data)
+            .then((data) => this.props.history.push("/"));
+    }
 
     render() {
         return (
-            <div class="pt-5" style={{marginRight:'auto', marginBottom:'40px'}} >
-                <h1 class="text-center" style={{margin:'30px'}}>Iniciar Sesión</h1>
-    
-                <Container maxWidth="xs" className="Container bg-info rounded text-white" style={{background: 'linear-gradient(to bottom right, #ff1b6b, #45caff)'}}>
+            <div class="pt-5" style={{ marginRight: 'auto', marginBottom: '40px' }} >
+                <h1 class="text-center" style={{ margin: '30px' }}>Iniciar Sesión</h1>
+
+                <Container maxWidth="xs" className="Container bg-info rounded text-white" style={{ background: 'linear-gradient(to bottom right, #ff1b6b, #45caff)' }}>
                     <div className="Cool" >
                         <form>
                             <div class="form-row text-center bg-indigo py-3">
@@ -25,7 +59,7 @@ class Sesion extends React.Component {
                                 </div>
 
                                 <div class="container text-center mt-3 container-fluid">
-                                    <button type="button" onClick={this.handleSubmit} class="btn col-md-8 ml-auto float-center" style={{backgroundColor:'#ebf4f5', color:'black'}}>¡Listo!</button>
+                                    <button type="button" class="btn col-md-8 ml-auto float-center" style={{ backgroundColor: '#ebf4f5', color: 'black' }}>¡Listo!</button>
                                 </div>
                             </div>
                         </form>
