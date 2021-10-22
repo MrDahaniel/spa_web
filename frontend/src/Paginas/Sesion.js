@@ -24,15 +24,13 @@ class Sesion extends React.Component {
 
     handleSubmit = () => {
         if (
-            this.state.username === '' || this.state.email === '' ||
-            this.state.password === '' || this.state.phone === '' ||
-            this.state.birthday === ''
+            this.state.username === '' || this.state.password === ''
         ) {
             return;
         }
 
 
-        axios.post("/api/auth/create", this.state)
+        axios.post("/api/auth/login", this.state)
             .then((response) => response.data)
             .then((data) => this.props.history.push("/"));
     }
@@ -59,7 +57,7 @@ class Sesion extends React.Component {
                                 </div>
 
                                 <div class="container text-center mt-3 container-fluid">
-                                    <button type="button" class="btn col-md-8 ml-auto float-center" style={{ backgroundColor: '#ebf4f5', color: 'black' }}>¡Listo!</button>
+                                    <button type="button" class="btn col-md-8 ml-auto float-center" style={{ backgroundColor: '#ebf4f5', color: 'black' }} onClick={this.handleSubmit}>¡Listo!</button>
                                 </div>
                             </div>
                         </form>
