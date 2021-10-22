@@ -8,19 +8,19 @@ import { fontSize } from '@mui/system'
 
 
 export default function Footer() {
-    return (
-      <footer style={{bottom:'0'}}>
-<AppBar position="static" style={{backgroundColor:'#6ad5f0', bottom:'0'}}>
-          <Container maxWidth="md">
-            <Toolbar>
-              <Typography variant="body1" color="black">
-                © 2021 Daniel y Valentina
-              </Typography>
-              <img style={{margin:'8px', width:'25px'}} src="https://img.icons8.com/fluency/48/000000/instagram-new.png"/>
-            </Toolbar>
-          </Container>
-        </AppBar>
-      </footer>
-        
-    )
+  return (
+    <footer class="fixed-bottom">
+      <AppBar position="static" style={{ backgroundColor: '#6ad5f0' }}>
+        <Container maxWidth="md">
+          <Toolbar>
+            <Typography variant="body1" color="black">
+              © 2021 Daniel y Valentina
+            </Typography>
+            <img style={{ margin: '8px', width: '25px' }} src="https://img.icons8.com/fluency/48/000000/instagram-new.png" />
+          </Toolbar>
+        </Container>
+      </AppBar>
+    </footer>
+
+  )
 }

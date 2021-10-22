@@ -50,7 +50,6 @@ class Sesion extends React.Component {
                                     <input type="text" class="form-control bg-indigo" id="inputnombre4" placeholder="Usuario" value={this.state.username} onChange={this.handleUsernameChange} required />
                                 </div>
 
-
                                 <div class="form-group text-center bg-indigo">
                                     <label for="inputPassword4">Contraseña</label>
                                     <input type="password" class="form-control" id="inputPassword4" placeholder="Contraseña" value={this.state.password} onChange={this.handlePassChange} required />

@@ -17,14 +17,14 @@ class Reservas extends React.Component {
         };
         this.tickets = []
 
-        axios.get("/api/park/tickets")
-            .then((response) => response.data)
-            .then((data) => { this.tickets = data });
+
 
         this.handleDateChange = this.handleDateChange.bind(this);
         this.handleTicketChange = this.handleTicketChange.bind(this);
         this.createSelectOptions = this.createSelectOptions.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.getTickets = this.getTickets.bind(this);
+        this.componentDidMount = this.componentDidMount.bind(this);
 
         axios.defaults.xsrfCookieName = 'csrftoken';
         axios.defaults.xsrfHeaderName = 'X-CSRFToken';
@@ -32,6 +32,15 @@ class Reservas extends React.Component {
 
     handleDateChange(event) { this.setState({ date: event.target.value }); }
     handleTicketChange(event) { this.setState({ ticket: event.target.value }); }
+    async getTickets() {
+        this.tickets = await axios.get("/api/park/tickets")
+            .then((response) => response.data)
+            .then((data) => { return data });
+    }
+
+    componentDidMount() {
+        this.getTickets();
+    }
 
     createSelectOptions() {
         let items = [];

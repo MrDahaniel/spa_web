@@ -22,7 +22,6 @@ class UserDetailView(views.APIView):
     def get(self, request: HttpRequest, format=None):
         if request.user.is_authenticated:
             queryset = User.objects.filter(username=request.user.username)
-            print(queryset[0])
             if queryset.exists():
                 data = UserModelSerializer(queryset[0]).data
                 return Response(data, status=status.HTTP_200_OK)
