@@ -7,6 +7,7 @@ import Reservas from './Paginas/Reservas'
 import Galeria from './Paginas/Galeria'
 import Footer from './Navegacion/Footer'
 import Registro from './Paginas/Registro'
+import Usuario from './Paginas/Usuario';
 import './index.css'
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
             <Route path='/Registro' exact component={Registro}/>
             <Route path='/Reservas' exact component={Reservas}/>
             <Route path='/Galeria' exact component={Galeria}/>
+            <Route path='/Usuario' exact component={Usuario}/>
           </Switch>
         </Router>
         <Footer/>
