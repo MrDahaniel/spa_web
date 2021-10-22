@@ -1,7 +1,6 @@
 from django.http import HttpRequest
 from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.models import User
 
 from rest_framework import views, authentication, status, generics
 from rest_framework.response import Response
@@ -9,6 +8,7 @@ from rest_framework.authentication import SessionAuthentication, BasicAuthentica
 from rest_framework.permissions import IsAuthenticated
 
 from api.serializers import UserModelSerializer, UserUpdateSerializer
+from api.models import User
 
 
 class userLoginView(views.APIView):
@@ -43,6 +43,8 @@ class userCreateView(views.APIView):
                 "last_name": request.data.get("last_name", None),
                 "username": username,
                 "email": email,
+                "phone": request.data.get("phone", None),
+                "birthday": request.data.get("birthday", None),
                 "error": "Email or Username already in use.",
             }
             return Response(data, status=status.HTTP_400_BAD_REQUEST)
@@ -52,6 +54,8 @@ class userCreateView(views.APIView):
                 last_name=request.data.get("last_name", None),
                 email=email,
                 username=username,
+                phone=request.data.get("phone", None),
+                birthday=request.data.get("birthday", None),
                 password=request.data.get("password", None),
             )
             return Response(
@@ -69,6 +73,10 @@ class UserUpdateView(views.APIView):
                 user.first_name = request.data.get("first_name", None)
             if request.data.get("last_name", None) != userData.get("last_name"):
                 user.last_name = request.data.get("last_name", None)
+            if request.data.get("phone", None) != userData.get("phone"):
+                user.phone = request.data.get("phone", None)
+            if request.data.get("birthday", None) != userData.get("birthday"):
+                user.birthday = request.data.get("birthday", None)
             user.save()
 
             return Response({"OK": "User updated"}, status=status.HTTP_200_OK)
