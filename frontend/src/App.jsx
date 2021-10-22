@@ -2,10 +2,11 @@ import React from 'react';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import Navbar from './Navegacion/Navbar'
 import Inicio from './Paginas/Inicio'
-import Sesion from './Paginas/Sesion'
+import Sesion from './Paginas/Registro'
 import Reservas from './Paginas/Reservas'
 import Galeria from './Paginas/Galeria'
 import Footer from './Navegacion/Footer'
+import Registro from './Paginas/Registro'
 import './index.css'
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
           <Navbar/>
           <Switch>
             <Route path='/' exact component={Inicio}/>
-            <Route path='/Sesion' exact component={Sesion}/>
+            <Route path='/Registro' exact component={Registro}/>
             <Route path='/Reservas' exact component={Reservas}/>
             <Route path='/Galeria' exact component={Galeria}/>
           </Switch>

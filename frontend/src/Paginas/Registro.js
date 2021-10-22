@@ -1,9 +1,8 @@
 import React from 'react'
 import Container from '@mui/material/Container'
 import axios from 'axios'
-import { alertTitleClasses } from '@mui/material';
 
-class Session extends React.Component {
+class Registro extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -93,4 +92,4 @@ class Session extends React.Component {
     }
 }
 
-export default Session
+export default Registro

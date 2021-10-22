@@ -10,7 +10,7 @@ const Inicio = () => {
       <div class="col-md-5 p-lg-5 mx-auto my-5">
         <h1 class="display-4 font-weight-normal" >¡Únete a la diversión!</h1>
         <p class="lead font-weight-normal">Registrate ya para obtener un tiquete gratis el dia de tu cumple.</p>
-        <Link class="btn btn-outline-secondary btn-lg" to="/Sesion">Registrate aquí</Link>
+        <Link class="btn btn-outline-secondary btn-lg" to="/Registro">Registrate aquí</Link>
       </div>
       <div class="product-device box-shadow d-none d-md-block"></div>
       <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
