@@ -5,7 +5,7 @@ import Inicio from './Paginas/Inicio'
 import Sesion from './Paginas/Sesion'
 import Reservas from './Paginas/Reservas'
 import Galeria from './Paginas/Galeria'
-import Abajito from './Abajito/Abajito'
+import Footer from './Navegacion/Footer'
 import './index.css'
 
 function App() {
@@ -20,10 +20,8 @@ function App() {
             <Route path='/Reservas' exact component={Reservas}/>
             <Route path='/Galeria' exact component={Galeria}/>
           </Switch>
-            <div className="Abajito">
-              <Abajito/>
-            </div>
         </Router>
+        <Footer/>
 
 
     </div>
