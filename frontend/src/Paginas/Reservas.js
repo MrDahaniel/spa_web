@@ -28,10 +28,12 @@ class Reservas extends React.Component {
 
         axios.defaults.xsrfCookieName = 'csrftoken';
         axios.defaults.xsrfHeaderName = 'X-CSRFToken';
+        this.componentDidMount();
     }
 
     handleDateChange(event) { this.setState({ date: event.target.value }); }
     handleTicketChange(event) { this.setState({ ticket: event.target.value }); }
+
     async getTickets() {
         this.tickets = await axios.get("/api/park/tickets")
             .then((response) => response.data)

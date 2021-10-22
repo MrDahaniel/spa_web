@@ -5,14 +5,33 @@ class Usuario extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            ready: false,
             user: {},
-            bookings: []
+            bookings: [],
+            tickets: []
         }
 
         this.HandleUserDetails = this.HandleUserDetails.bind(this);
         this.HandleBookingData = this.HandleBookingData.bind(this);
+        this.redirectBooking = this.redirectBooking.bind(this);
         this.renderBookings = this.renderBookings.bind(this);
+        this.getTickets = this.getTickets.bind(this);
+        this.deleteBooking = this.deleteBooking.bind(this);
         this.componentDidMount = this.componentDidMount.bind(this);
+        this.sleep = this.sleep.bind();
+
+        axios.defaults.xsrfCookieName = 'csrftoken';
+        axios.defaults.xsrfHeaderName = 'X-CSRFToken';
+
+        this.sleep(1000);
+        this.componentDidMount();
+    }
+
+    async getTickets() {
+        const tickets = await axios.get("/api/park/tickets")
+            .then((response) => response.data)
+            .then((data) => { return data });
+        this.setState({ tickets: tickets })
     }
 
     async HandleUserDetails() {
@@ -29,28 +48,90 @@ class Usuario extends React.Component {
             .then((response) => { return response.data });
 
         this.setState({ bookings: bookings });
-        console.log(bookings);
     }
 
-    renderBookings() {
-        console.log(this.state.bookings.length)
-        if (this.state.bookings.length > 0) {
-            return (
-                <table class="table">
-                    <thead>
-                        <th scope="col">#</th>
-                        <th scope="col">Tiquete Seleccionado</th>
-                        <th scope="col"></th>
-                    </thead>
-                </table>
+    deleteBooking(event, bookId) {
+        axios.post("/api/park/book/delete", { id: bookId })
+        console.log(event.target.parentElement.parentElement.parentElement.childElementCount)
+        if (event.target.parentElement.parentElement.parentElement.childElementCount === 1) {
+            this.props.history.push("/Reservas")
+        } else {
+            event.target.parentElement.parentElement.remove()
 
-            );
         }
     }
 
+    sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    renderBookings() {
+        try {
+            if (this.state.bookings.bookings.length != 0 && this.state.ready) {
+                console.log(this.state.bookings.bookings)
+                var bookingsRows = [];
+                for (const book of this.state.bookings.bookings) {
+                    const ticket = this.state.tickets.find(x => x.id === book.ticket);
+                    bookingsRows.push(
+                        <tr>
+                            <td>{book.id}</td>
+                            <td>{ticket.name}</td>
+                            <td>{ticket.price}</td>
+                            <td>{book.date}</td>
+                            <td>
+                                <button class="btn btn-danger btn-sm" type="button" onClick={(event) => { this.deleteBooking(event, book.id) }}>
+                                    Eliminar
+                                </button>
+                            </td>
+                        </tr>
+                    )
+                }
+                return (
+                    <table class="table">
+                        <thead>
+                            <th scope="col">#</th>
+                            <th scope="col">Tiquete Seleccionado</th>
+                            <th scope="col">Precio</th>
+                            <th scope="col">Fecha</th>
+                            <th></th>
+
+                        </thead>
+                        <tbody>
+                            {bookingsRows}
+                        </tbody>
+                    </table>
+
+                );
+            } else {
+                return (
+                    <div class="container py-3">
+                        <div class="text-secondary text-center pb-3">
+                            Aún no tienes Reservas...
+                        </div>
+                        <div class="text-secondary text-center pb-3">
+                            ¿Deseas crear una?
+                        </div>
+                        <div class="row text-center">
+                            <button class="btn btn-success" type="button" onClick={this.redirectBooking}>
+                                Crear Reserva
+                            </button>
+                        </div>
+                    </div>
+
+                );
+            }
+        } catch { }
+    }
+
+    redirectBooking() {
+        this.props.history.push("/Reservas");
+    }
+
     componentDidMount() {
-        this.HandleUserDetails();
+        this.getTickets();
         this.HandleBookingData();
+        this.HandleUserDetails();
+        this.setState({ ready: true });
     }
 
     render() {
@@ -100,11 +181,11 @@ class Usuario extends React.Component {
                             <div class="row text-center pt-3">
                                 <h2>Reservas</h2>
                             </div>
-                            <div class="container bg-info rounded">
-                                <div class="row py-3">
-                                    <h4 class="text-center py-2">Reservas Activas</h4>
+                            <div class="container bg-info rounded py-3">
+                                <div class="row py-2">
+                                    <h4 class="text-center">Reservas Activas</h4>
                                 </div>
-                                <div class="container bg-light rounded">
+                                <div class="container bg-light rounded pb-3">
                                     {this.renderBookings()}
                                 </div>
                             </div>
