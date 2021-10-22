@@ -67,7 +67,7 @@ class Usuario extends React.Component {
 
     renderBookings() {
         try {
-            if (this.state.bookings.bookings.length != 0 && this.state.ready) {
+            if (this.state.bookings.bookings.length !== 0 && this.state.ready) {
                 console.log(this.state.bookings.bookings)
                 var bookingsRows = [];
                 for (const book of this.state.bookings.bookings) {
@@ -137,13 +137,13 @@ class Usuario extends React.Component {
     render() {
         return (
             <div class="pt-5">
-                <div class="container">
+                <div class="container bg-light py-3 rounded">
                     <div class="row">
-                        <div class="col-6 pe-2 bg-light">
+                        <div class="col-6 pe-2">
                             <div class="row text-center pt-3">
                                 <h2> Usuario </h2>
                             </div>
-                            <div class="container bg-info rounded" style={{background: 'linear-gradient(to bottom right, #ff1b6b, #45caff)'}}>
+                            <div class="container bg-info rounded" style={{ background: 'linear-gradient(to bottom right, #ff1b6b, #45caff)' }}>
                                 <div class="row py-3">
                                     <h4 class="text-center py-2 text-light">Detalles de Usuario</h4>
                                     <div class="container bg-light rounded">
@@ -171,18 +171,18 @@ class Usuario extends React.Component {
                                 </div>
                                 <div class="row py-3 text-center">
                                     <div class="text-center">
-                                   
-                                        <button class="btn btn-danger ms-2" type="button" style={{backgroundColor:'#ebf4f5', color:'black'}}>Eliminar Usuario</button>
+
+                                        <button class="btn btn-danger ms-2" type="button" style={{ backgroundColor: '#ebf4f5', color: 'black' }}>Eliminar Usuario</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-6 ps-2  bg-light">
+                        <div class="col-6 ps-2 ">
                             <div class="row text-center pt-3">
                                 <h2 >Reservas</h2>
                             </div>
-                            <div class="container bg-info rounded" style={{background: 'linear-gradient(to bottom right, #ff1b6b, #45caff)'}}>
-                                <div class="row py-3">
+                            <div class="container bg-info rounded pb-3" style={{ background: 'linear-gradient(to bottom right, #ff1b6b, #45caff)' }}>
+                                <div class="row py-2">
                                     <h4 class="text-center py-2 text-light">Reservas Activas</h4>
                                 </div>
                                 <div class="container bg-light rounded pb-3">

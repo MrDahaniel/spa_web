@@ -4,17 +4,26 @@ import Logo from './Logo.png'
 import './Navbar.css'
 import axios from 'axios'
 
+export function updateText(text) {
+    this.setState({ text: text })
+}
+
 class navbar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             user: {},
+            text: ""
         }
 
         this.HandleUserDetails = this.HandleUserDetails.bind(this);
         this.componentDidMount = this.componentDidMount.bind(this);
         this.getNavBarButtons = this.getNavBarButtons.bind(this);
         this.Logout = this.Logout.bind(this);
+
+        updateText = updateText.bind(this)
+
+        this.setState({ text: "A" })
 
         axios.defaults.xsrfCookieName = 'csrftoken';
         axios.defaults.xsrfHeaderName = 'X-CSRFToken';
@@ -37,8 +46,9 @@ class navbar extends React.Component {
 
     async Logout() {
         await axios.post("/api/auth/logout", {})
-            .then((_) => { });
-        this.setState({ user: null })
+            .then((_) => { this.setState({ user: null }); });
+
+
     }
 
 

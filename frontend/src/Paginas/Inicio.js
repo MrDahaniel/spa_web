@@ -1,8 +1,10 @@
 import React from 'react'
 import './product.css'
 import { Link } from 'react-router-dom'
+import { updateText } from '../Navegacion/Navbar'
 
 const Inicio = () => {
+    updateText("a")
     return (
         <div>
 

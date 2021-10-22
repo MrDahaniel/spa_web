@@ -1,13 +1,15 @@
 import React from 'react'
 import Container from '@mui/material/Container'
 import axios from 'axios'
+import { updateText } from '../Navegacion/Navbar';
 
 class Sesion extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             username: "",
-            password: ""
+            password: "",
+            log: ""
         }
 
         this.handleUsernameChange = this.handleUsernameChange.bind(this);
@@ -19,6 +21,7 @@ class Sesion extends React.Component {
         axios.defaults.xsrfHeaderName = 'X-CSRFToken';
     }
 
+
     handleUsernameChange(event) { this.setState({ username: event.target.value }); }
     handlePassChange(event) { this.setState({ password: event.target.value }); }
 
@@ -29,10 +32,12 @@ class Sesion extends React.Component {
             return;
         }
 
-
         axios.post("/api/auth/login", this.state)
             .then((response) => response.data)
-            .then((data) => this.props.history.push("/"));
+            .then((data) => { });
+
+        updateText("cool")
+        this.props.history.push("/");
     }
 
     render() {

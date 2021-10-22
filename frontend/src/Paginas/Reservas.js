@@ -1,10 +1,6 @@
 import React from 'react'
-import FormControl from '@mui/material/FormControl'
-import FormLabel from '@mui/material/FormLabel'
-import FormHelperText from '@mui/material/FormHelperText'
 import Container from '@mui/material/Container'
 import './estilos.css'
-import Logo from './bg.jpg'
 import axios from 'axios'
 
 
@@ -73,8 +69,8 @@ class Reservas extends React.Component {
             <div class="pt-5">
                 <h1 class="text-center">¡Reserva ya con nosotros!</h1>
 
-                <Container maxWidth="xs" className="Container col-md-offset-5 bg-info rounded text-white" style={{background: 'linear-gradient(to bottom right, #ff1b6b, #45caff)'}}>
-                    <div className="Cool" style={{background: 'linear-gradient(to bottom right, #ff1b6b, #45caff)'}}>
+                <Container maxWidth="xs" className="Container col-md-offset-5 bg-info rounded text-white" style={{ background: 'linear-gradient(to bottom right, #ff1b6b, #45caff)' }}>
+                    <div className="Cool" style={{ background: 'linear-gradient(to bottom right, #ff1b6b, #45caff)' }}>
                         <form>
                             <div class="form-row text-center py-3">
                                 <div class="form-group text-center bg-indigo rounded">
@@ -95,7 +91,7 @@ class Reservas extends React.Component {
                                     </label>
                                 </div>
                                 <div class="container text-center my-3 container-fluid">
-                                    <button type="button" class="btn btn-warning col-md-8 ml-auto float-center" style={{backgroundColor:'white', color:'black'}} onClick={this.handleSubmit}>¡Listo!</button>
+                                    <button type="button" class="btn btn-warning col-md-8 ml-auto float-center" style={{ backgroundColor: 'white', color: 'black' }} onClick={this.handleSubmit}>¡Listo!</button>
                                 </div>
                             </div>
                         </form>
