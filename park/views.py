@@ -25,8 +25,8 @@ class UserDetailView(views.APIView):
             if queryset.exists():
                 data = UserModelSerializer(queryset[0]).data
                 return Response(data, status=status.HTTP_200_OK)
-            else:
-                return Response(status=status.HTTP_404_NOT_FOUND)
+        else:
+            return Response(status=status.HTTP_404_NOT_FOUND)
 
 
 class TicketListView(generics.ListAPIView):
