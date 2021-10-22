@@ -17,6 +17,7 @@ function App() {
           <Navbar/>
           <Switch>
             <Route path='/' exact component={Inicio}/>
+            <Route path='/Sesion' exact component={Sesion}/>
             <Route path='/Registro' exact component={Registro}/>
             <Route path='/Reservas' exact component={Reservas}/>
             <Route path='/Galeria' exact component={Galeria}/>

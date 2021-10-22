@@ -45,13 +45,17 @@ class Registro extends React.Component {
             .then((response) => response.data)
             .then((data) => this.props.history.push("/"));
     }
+            
+
+
 
     render() {
         return (
-            <div class="pt-5">
-                <h1 class="text-center">¡Registro!</h1>
-                <Container maxWidth="xs" className="Container bg-info rounded text-white">
-                    <div className="Cool">
+            <div class="pt-5" style={{marginRight:'auto', marginBottom:'40px'}} >
+                <h1 class="text-center" style={{margin:'30px'}}>¡Registro!</h1>
+    
+                <Container maxWidth="xs" className="Container bg-info rounded text-white" style={{background: 'linear-gradient(to bottom right, #ff1b6b, #45caff)'}}>
+                    <div className="Cool" >
                         <form>
                             <div class="form-row text-center bg-indigo py-3">
 
@@ -81,7 +85,7 @@ class Registro extends React.Component {
                                 </div>
 
                                 <div class="container text-center mt-3 container-fluid">
-                                    <button type="button" onClick={this.handleSubmit} class="btn btn-warning col-md-8 ml-auto float-center">¡Listo!</button>
+                                    <button type="button" onClick={this.handleSubmit} class="btn col-md-8 ml-auto float-center" style={{backgroundColor:'#ebf4f5', color:'black'}}>¡Listo!</button>
                                 </div>
                             </div>
                         </form>
