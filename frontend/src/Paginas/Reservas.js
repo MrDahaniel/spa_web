@@ -71,10 +71,10 @@ class Reservas extends React.Component {
             <div class="pt-5">
                 <h1 class="text-center">¡Reserva ya con nosotros!</h1>
 
-                <Container maxWidth="xs" className="Container col-md-offset-5 bg-info rounded text-white">
-                    <div className="Cool">
+                <Container maxWidth="xs" className="Container col-md-offset-5 bg-info rounded text-white" style={{background: 'linear-gradient(to bottom right, #ff1b6b, #45caff)'}}>
+                    <div className="Cool" style={{background: 'linear-gradient(to bottom right, #ff1b6b, #45caff)'}}>
                         <form>
-                            <div class="form-row text-center bg-indigo py-3">
+                            <div class="form-row text-center py-3">
                                 <div class="form-group text-center bg-indigo rounded">
                                     <label for="inputdateres4">Fecha</label>
                                     <input type="date" class="form-control" id="inputdateres4" onChange={this.handleDateChange} />
@@ -93,7 +93,7 @@ class Reservas extends React.Component {
                                     </label>
                                 </div>
                                 <div class="container text-center my-3 container-fluid">
-                                    <button type="button" class="btn btn-warning col-md-8 ml-auto float-center" onClick={this.handleSubmit}>¡Listo!</button>
+                                    <button type="button" class="btn btn-warning col-md-8 ml-auto float-center" style={{backgroundColor:'white', color:'black'}} onClick={this.handleSubmit}>¡Listo!</button>
                                 </div>
                             </div>
                         </form>
