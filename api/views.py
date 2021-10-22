@@ -31,16 +31,16 @@ class userLogoutView(views.APIView):
 
 class userCreateView(views.APIView):
     def post(self, request: HttpRequest, format=None):
-        username = request.data.get("username", None)
+        username = request.data.get("username")
         email = request.data.get("email", None)
+
+        print(username)
 
         nonUniqueEmail = User.objects.filter(email=email).exists()
         nonUniqueUsername = User.objects.filter(username=username).exists()
 
         if nonUniqueEmail or nonUniqueUsername:
             data = {
-                "first_name": request.data.get("first_name", None),
-                "last_name": request.data.get("last_name", None),
                 "username": username,
                 "email": email,
                 "phone": request.data.get("phone", None),
@@ -50,8 +50,6 @@ class userCreateView(views.APIView):
             return Response(data, status=status.HTTP_400_BAD_REQUEST)
         else:
             User.objects.create_user(
-                first_name=request.data.get("first_name", None),
-                last_name=request.data.get("last_name", None),
                 email=email,
                 username=username,
                 phone=request.data.get("phone", None),

@@ -2,7 +2,7 @@ from typing import Dict, Generic
 from django.http import HttpRequest
 from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.models import User
+from api.models import User
 
 from rest_framework import views, authentication, status, generics
 from rest_framework.response import Response
@@ -22,6 +22,7 @@ class UserDetailView(views.APIView):
     def get(self, request: HttpRequest, format=None):
         if request.user.is_authenticated:
             queryset = User.objects.filter(username=request.user.username)
+            print(queryset[0])
             if queryset.exists():
                 data = UserModelSerializer(queryset[0]).data
                 return Response(data, status=status.HTTP_200_OK)

@@ -1,14 +1,17 @@
-from django.contrib.auth.models import User
-
 from rest_framework import serializers, fields
 
+from api.models import User
 from park.models import Booking, Ticket
 
 
 class UserModelSerializer(serializers.ModelSerializer):
+    birthday = fields.DateField(
+        format="%Y-%m-%d", input_formats=["%y-%m-%d", "iso-8601"]
+    )
+
     class Meta:
         model = User
-        fields = ["id", "first_name", "last_name", "username", "email"]
+        fields = ["id", "username", "email", "phone", "birthday"]
 
 
 class TicketModelSerializer(serializers.ModelSerializer):
