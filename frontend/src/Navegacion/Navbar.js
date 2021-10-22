@@ -11,27 +11,33 @@ const navbar = () =>{
         <img src={Logo} width="200"/>
     </Link>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span className="navbar-toggler-icon"></span>
+      <span className="navbar-toggler-icon">a</span>
     </button>
 
-    <div className="collapse navbar-collapse" id="navbarSupportedContent">
+    <div style={{backgroundColor: '#53d0f0', borderRadius:'8px'}}>
 
-      <ul className="navbar-nav">
+    <div  id="navbarSupportedContent" style={{textAlign:'right'}}>
+
+      <ul className="navbar-nav" style={{textAlign:'right'}}>
         
-        <li className="nav-item text-white">
-          <Link className="nav-link active text-white" aria-current="page" to="/">Inicio</Link>
+        <li className="nav-item " style={{fontSize:'18px' ,textAlign:'right', border:'solid 1px black', borderRadius:'8px' ,borderColor:'#a9ff68', margin:'8px', backgroundColor:'#a9ff68', color:'#FE6684'}} >
+          <Link className="nav-link active" style={{color:'#FE6684'}} aria-current="page" to="/">Inicio</Link>
         </li>
-        <li className="nav-item text-white">
-          <Link className="nav-link active text-white" aria-current="page" to="/Sesion">Iniciar Sesión</Link>
+        <li className="nav-item" style={{fontSize:'18px', border:'solid 1px black', borderRadius:'8px' ,borderColor:'#a9ff68', margin:'8px', backgroundColor:'#a9ff68', color:'#FE6684'}}>
+          <Link className="nav-link active" style={{color:'#FE6684'}} aria-current="page" to="/Sesion">Iniciar Sesión</Link>
         </li>
-        <li className="nav-item text-white">
-          <Link className="nav-link active text-white" aria-current="page" to="/Reservas">Reservas</Link>
+        <li className="nav-item" style={{fontSize:'18px', border:'solid 1px black', borderRadius:'8px' ,borderColor:'#a9ff68', margin:'8px', backgroundColor:'#a9ff68', color:'#FE6684'}}>
+          <Link className="nav-link active" style={{color:'#FE6684'}} aria-current="page" to="/Reservas" >Reservas</Link>
         </li>
-        <li className="nav-item text-white text-right">
-          <Link className="nav-link active text-white text-right" aria-current="page" to="/Galeria">Galería</Link>
+        <li className="nav-item" style={{fontSize:'18px', border:'solid 1px black', borderRadius:'8px' ,borderColor:'#a9ff68', margin:'8px', backgroundColor:'#a9ff68', color:'#FE6684'}}>
+          <Link className="nav-link active " style={{color:'#FE6684'}} aria-current="page" to="/Galeria" >Galería</Link>
         </li>
         
       </ul>
+      <div className="container-flex">
+      <p>¡Diversión tan grande como nuestras montañas rusas!</p>
+    </div>
+    </div>
     </div>
   </div>
 </nav>
