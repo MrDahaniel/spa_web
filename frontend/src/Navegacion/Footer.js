@@ -9,7 +9,8 @@ import { fontSize } from '@mui/system'
 
 export default function Footer() {
     return (
-        <AppBar position="static" style={{backgroundColor:'#6ad5f0'}}>
+      <footer style={{bottom:'0'}}>
+<AppBar position="static" style={{backgroundColor:'#6ad5f0', bottom:'0'}}>
           <Container maxWidth="md">
             <Toolbar>
               <Typography variant="body1" color="black">
@@ -19,5 +20,7 @@ export default function Footer() {
             </Toolbar>
           </Container>
         </AppBar>
+      </footer>
+        
     )
 }

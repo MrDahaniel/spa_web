@@ -3,7 +3,8 @@
 }
 
 body{
-    background: #a9ff68;
+    background: #aefb2a;
+    background-image:url('https://images.pexels.com/photos/705771/pexels-photo-705771.jpeg');
 }
 .card{
     display: flex;
